@@ -1,15 +1,10 @@
-
-
 import 'package:get/get.dart';
+import 'package:getwithoutapi/model/items.dart';
 import 'package:getwithoutapi/model/products.dart';
 import 'package:getwithoutapi/services/api.dart';
 
 class ProductContoller extends GetxController {
-  
-    var productList = List<Products>.empty().obs;
-
-
-  
+  var productList = List<Items>.empty().obs;
 
   void onInit() {
     super.onInit();
@@ -18,8 +13,9 @@ class ProductContoller extends GetxController {
 
   void fetchProducts() async {
     await Future.delayed(Duration(seconds: 1));
-    var productFromapi = ApiServices.FetchData();
-      
-    productList.value = productFromapi;
+    var productFromapi = await ApiServices.FetchData();
+    productList.clear();
+
+    productList.addAll(productFromapi);
   }
 }

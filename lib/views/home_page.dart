@@ -12,7 +12,6 @@ class HomePage extends StatelessWidget {
         children: [
           Expanded(
             child: GetX<ProductContoller>(
-              
               builder: (controller) {
                 return ListView.builder(
                   itemCount: controller.productList.length,
@@ -33,14 +32,14 @@ class HomePage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        '${controller.productList[index].productName}',
+                                        '${controller.productList[index].id}',
                                         style: TextStyle(fontSize: 24),
                                       ),
                                       Text(
-                                          '${controller.productList[index].prductDetails}'),
+                                          '${controller.productList[index].title}'),
                                     ],
                                   ),
-                                  Text('\$${controller.productList[index].productPrice}',
+                                  Text('\$${controller.productList[index].body}',
                                       style: TextStyle(fontSize: 24)),
                                 ],
                               ),
